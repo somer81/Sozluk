@@ -33,7 +33,7 @@ namespace Sozluk
             for (int i = 0; i < _keys.Length; i++)
             {
                 _keys[i] = _tempkeys[i];
-                _values[i] = _values[i]; 
+                _values[i] = _tempvals[i]; 
             }
 
             _keys[_keys.Length - 1] = key;
