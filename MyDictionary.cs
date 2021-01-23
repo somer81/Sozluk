@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace Sozluk
 {
-    public class MyDictionary<Tkey,Tval>
+    public class MyDictionary<Tkey,Tval>:IEnumerable
     {
-        Tkey[] _keys;
-        Tval[] _values;
+
+        public Tkey[] _keys { get; set; }
+        public Tval[] _values { get; set; }
+     
 
         Tkey[] _tempkeys;
         Tval[] _tempvals; 
@@ -30,7 +33,7 @@ namespace Sozluk
             _keys = new Tkey[_keys.Length + 1];
             _values = new Tval[_values.Length + 1];
 
-            for (int i = 0; i < _keys.Length; i++)
+            for (int i = 0; i < _tempkeys.Length; i++)
             {
                 _keys[i] = _tempkeys[i];
                 _values[i] = _tempvals[i]; 
@@ -41,6 +44,9 @@ namespace Sozluk
 
         }
 
-
+        public IEnumerator GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
     }
 }
